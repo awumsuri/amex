@@ -3,7 +3,7 @@ import React from 'react'
 export const CharacterList = (props) => (
     <div className="content">   
         <header className="character-select">Choose A Character</header>
-        <ul class="list-group">           
+        <ul className="list-group">           
             {
                 props.characters && 
                 props.characters.map(

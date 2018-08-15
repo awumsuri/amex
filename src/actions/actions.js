@@ -3,7 +3,7 @@ import StarWarsAPI from '../services/StarWarAPI'
 
 export const fetchCharacter = (url) => {
     return async dispatch => {
-        dispatch(fetchCharactersRequest())
+        dispatch(fetchingCharacterRequest())
         try {
             let data = await StarWarsAPI.fetchCharacter(url)
             dispatch(fetchingCharacterSuccess(data))

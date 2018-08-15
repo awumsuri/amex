@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "functional.js": "^0.8.0",
     "ramda": "^0.25.0",
     "react": "^16.4.2",
     "react-bootstrap": "^0.32.1",

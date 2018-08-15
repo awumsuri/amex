@@ -1,4 +1,4 @@
-import R from 'ramda'
+import fjs from 'functional.js'
 
 const fetchJson = async (url) => {
    const handShakeResponse = await fetch(url)
@@ -12,6 +12,6 @@ const getData = async (url, property, filter) => {
     return data.filter(filter(property))
 }
 
-const get = R.curry(getData)
+const get = fjs.curry(getData)
 
 export default { fetchJson, get }
