@@ -2,16 +2,17 @@ import React, { PureComponent } from 'react'
 import Characters from '../model/characters'
 import { CharacterList } from '../presentation/Views'
 import { connect } from 'react-redux'
-import StarWarsAPI from '../services/StarWarAPI'
+import { fetchCharacter } from '../actions/actions'
 
 class CharacterDisplay extends PureComponent {
 
     state = {
-        characters: Characters.characters
+        character: undefined
     }
 
     handleCharacterSelect = (event) => {
         const url = event.target.attributes[1]
+        fetchCharacter(url)
     }
 
     render() {
@@ -21,12 +22,12 @@ class CharacterDisplay extends PureComponent {
     }
 }
 
-const mapStateToProps = (state) => (
-    {
-        ...state
-    }
-)
+const mapStateToProps = (state) => ({
+        app: state
+})
 
-const mapDispatchToProps = (dispatch) => dispatch
+const mapDispatchToProps = {
+    fetchCharacter
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(CharacterDisplay)

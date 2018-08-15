@@ -1,6 +1,8 @@
 import ServiceCore from './core/ServiceCore'
 
-const Character = async (id) => {    
-    const characterList = await ServiceCore.get(id)
-
+const fetchCharacter = async (id) => {    
+    const characterInfo = await ServiceCore.get(id)
+    return characterInfo
 }
+
+export default { fetchCharacter }

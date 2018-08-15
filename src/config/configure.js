@@ -1,8 +1,10 @@
-import { createStore } from 'redux'
-import { AppReducer } from '../reducers/AppReducer'
+import { createStore, applyMiddleware } from 'redux'
+import { AppReducer as app } from '../reducers/AppReducer'
+import thunk from 'redux-thunk'
 
 const configureStore = () => {
-    const store = createStore(AppReducer)    
+    const createStoreWithMiddle = applyMiddleware(thunk)(createStore)
+    const store = createStoreWithMiddle(app)    
     return store
 }
 
