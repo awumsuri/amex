@@ -1,0 +1,14 @@
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-group {  
+  width: 200px;
+}
+
+.character-select {
+  font-size: large;
+  font-weight: bold;
+}
