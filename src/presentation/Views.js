@@ -9,15 +9,16 @@ export const CharacterList = (props) => (
                 {
                     props.characters && 
                     props.characters.map(
-                        (character, index) => {                        
-                            return <li 
+                        (character, index) => (                        
+                            <li 
                                 key={index}
                                 data-indexname={index}                         
                                 className={"list-group-item list-group-item-action".concat((props.activeKey === index) ? " active" : "")}
                                 data-url={character.url}
                                 onClick={e => props.onClick(e)}
-                            >{character.name}</li>
-                        }
+                            >{character.name}
+                            </li>
+                        )
                     )
                 }
             </ul>
