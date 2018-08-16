@@ -4,7 +4,8 @@ import thunk from 'redux-thunk'
 
 const configureStore = () => {
     const createStoreWithMiddle = applyMiddleware(thunk)(createStore)
-    const store = createStoreWithMiddle(app)    
+    const store = createStoreWithMiddle(app)
+    
     return store
 }
 

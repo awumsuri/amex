@@ -10,11 +10,14 @@ class CharacterDisplay extends PureComponent {
     state = {        
         character: undefined,
         isFetching: false,
-        error: undefined
+        error: undefined, 
+        activeKey: undefined
     }
 
     handleCharacterSelect = (event) => {
-        const url = event.target.attributes[1].value
+        const { attributes } = event.target
+        const url = attributes['data-url'].value
+        this.activeKey = attributes['data-indexname'].value        
         this.props.fetchCharacter(url)
     }
 
@@ -27,6 +30,7 @@ class CharacterDisplay extends PureComponent {
                     { ...this.state } 
                     onClick={this.handleCharacterSelect} 
                     characters={Characters.characters}
+                    activeKey={this.state.activeKey}
                  />
                  {
                      app.isFetching && 

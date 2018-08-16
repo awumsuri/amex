@@ -9,13 +9,14 @@ const fetchCharacter = async (url) => {
 const fetchMoviesByCharacter = async movies => {
     const promises = movies.map(film => ServiceCore.get(film))
     const films = await Promise.all(promises)
-    console.log(JSON.stringify(films))
     return films
 }
 
-let fetchAllCharacterMovies = Fjs.curry (async (url) => {
-    const characterData =  await fetchCharacter(url)
-    return await fetchMoviesByCharacter(characterData.films)
-})
+let fetchAllCharacterMovies = Fjs.curry (
+    async url => {
+        const characterData =  await fetchCharacter(url)
+        return await fetchMoviesByCharacter(characterData.films)
+    }
+)
 
 export default { fetchAllCharacterMovies }
