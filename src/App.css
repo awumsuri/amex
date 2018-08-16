@@ -1,8 +1,7 @@
 @font-face {
   font-family: 'star-wars';
-  font-style: 'bold';
-  src: local('star-wars')
-      url('./assets//fonts/Starjedi.ttf')
+  font-style: normal;
+  src: url('./assets/fonts/Starjedi.ttf') format('truetype')
 
 }
 
@@ -15,6 +14,12 @@
 }
 
 .content {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+div ul {
   display: block;
   margin: auto;
   text-align: center;
