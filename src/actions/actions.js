@@ -1,11 +1,11 @@
 import * as ActionTypes from '../ActionTypes/actionTypes'
-import StarWarsAPI from '../services/StarWarAPI'
+import StarWarAPI from '../services/StarWarAPI';
 
 export const fetchCharacter = (url) => {
     return async dispatch => {
         dispatch(fetchingCharacterRequest())
-        try {
-            let data = await StarWarsAPI.fetchCharacter(url)
+        try {           
+            const data = await StarWarAPI.fetchAllCharacterMovies(url)
             dispatch(fetchingCharacterSuccess(data))
         } catch(error) {
             dispatch(fetchingCharacterError(error))

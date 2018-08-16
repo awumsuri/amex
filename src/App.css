@@ -1,11 +1,16 @@
 .content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+ul  {
+  width: 200px;
+
 }
 
 .list-group {  
-  width: 200px;
+
 }
 
 .character-select {

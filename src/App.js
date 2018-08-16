@@ -3,6 +3,7 @@ import './App.css';
 import CharacterList from './components/CharacterDisplay'
 import { Provider } from 'react-redux'
 import configure from './config/configure'
+import 'react-activity/dist/react-activity.css';
 
 const store = configure.configureStore()
 

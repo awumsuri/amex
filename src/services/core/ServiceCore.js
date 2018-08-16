@@ -1,4 +1,3 @@
-import fjs from 'functional.js'
 
 const fetchJson = async (url) => {
    const responseHeaders = await fetch(url)
@@ -16,9 +15,9 @@ const handleError = (statusCode) => {
     
     switch(true) {
         case statusCode < 500:
-            throw new Error("Thats character doesnt seem to be Real. We can't find them in out Database")
+            throw new Error("Thats character doesnt seem to be Real. We can't find them in out Database.")
         default:
-            throw new Error("Looks like out system down. Please try again later") 
+            throw new Error("Looks like our system is down. Please try again later :(") 
     }
 }
 const get = async (url) => {

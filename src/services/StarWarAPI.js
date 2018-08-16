@@ -1,9 +1,21 @@
 import ServiceCore from './core/ServiceCore'
+import Fjs from 'functional.js'
 
 const fetchCharacter = async (url) => {    
     const characterInfo = await ServiceCore.get(url)
-    console.log(JSON.stringify(characterInfo))
     return characterInfo
 }
 
-export default { fetchCharacter }
+const fetchMoviesByCharacter = async movies => {
+    const promises = movies.map(film => ServiceCore.get(film))
+    const films = await Promise.all(promises)
+    console.log(JSON.stringify(films))
+    return films
+}
+
+let fetchAllCharacterMovies = Fjs.curry (async (url) => {
+    const characterData =  await fetchCharacter(url)
+    return await fetchMoviesByCharacter(characterData.films)
+})
+
+export default { fetchAllCharacterMovies }
