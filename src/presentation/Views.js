@@ -16,7 +16,8 @@ export const CharacterList = (props) => (
                                 className={"list-group-item list-group-item-action".concat((props.activeKey === index) ? " active" : "")}
                                 data-url={character.url}
                                 onClick={e => props.onClick(e)}
-                            >{character.name}
+                            >
+                            {character.name}
                             </li>
                         )
                     )
