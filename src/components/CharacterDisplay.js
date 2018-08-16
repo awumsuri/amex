@@ -22,7 +22,7 @@ class CharacterDisplay extends PureComponent {
 
     transformDate(characters) {
         characters.forEach(character => {
-            character.created = new Date(character.created)
+            character.release_date = new Date(character.release_date)
         });
     }
 
