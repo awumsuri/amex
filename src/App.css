@@ -43,3 +43,10 @@ li {
   color: red;
 }
 
+
+.results {
+  display: flex;
+  justify-content: center;
+  width: 500px;
+  margin: 10px;
+}

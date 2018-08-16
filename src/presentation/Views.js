@@ -1,4 +1,5 @@
 import React from 'react'
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
 
 export const CharacterList = (props) => (
     <div>   
@@ -21,5 +22,14 @@ export const CharacterList = (props) => (
                 }
             </ul>
         </div>
+    </div>
+)
+
+export const CharacterInfo = (props) => (
+    <div className="results">
+        <BootstrapTable data={props.movies} hover>
+            <TableHeaderColumn isKey dataField="title">Title</TableHeaderColumn>
+            <TableHeaderColumn dataField="created">Created</TableHeaderColumn>
+        </BootstrapTable>
     </div>
 )

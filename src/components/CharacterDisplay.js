@@ -1,28 +1,39 @@
 import React, { PureComponent } from 'react'
 import Characters from '../model/characters'
-import { CharacterList } from '../presentation/Views'
+//import CharacterInfo from './CharacterInfo'
+import { CharacterList, CharacterInfo } from '../presentation/Views'
 import { connect } from 'react-redux'
 import { fetchCharacter } from '../actions/actions'
 import { Sentry } from 'react-activity'
+
+let activeKey = -1;
 
 class CharacterDisplay extends PureComponent {
 
     state = {        
         character: undefined,
         isFetching: false,
-        error: undefined, 
-        activeKey: undefined
+        error: undefined 
     }
 
     handleCharacterSelect = (event) => {
         const { attributes } = event.target
         const url = attributes['data-url'].value
-        this.activeKey = attributes['data-indexname'].value        
+        activeKey = parseInt(attributes['data-indexname'].value, 10)        
         this.props.fetchCharacter(url)
+    }
+
+    transformDate(characters) {
+        characters.forEach(character => {
+            character.created = new Date(character.created)
+        });
     }
 
     render() {
         const { app } = this.props
+        if (app.character) {
+            this.transformDate(app.character)
+        }
 
         return (
             <div className="content">
@@ -31,7 +42,7 @@ class CharacterDisplay extends PureComponent {
                     { ...this.state } 
                     onClick={this.handleCharacterSelect} 
                     characters={Characters.characters}
-                    activeKey={this.state.activeKey}
+                    activeKey={activeKey}
                  />
                  {
                      app.isFetching && 
@@ -42,6 +53,10 @@ class CharacterDisplay extends PureComponent {
                     <div>
                         <span className="error">{app.error.message}</span>
                     </div>
+                 }
+                 {
+                     !app.error && !app.isFetching && app.character && 
+                     <CharacterInfo movies={app.character}/>
                  }
             </div>
         )        

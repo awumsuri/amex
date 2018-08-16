@@ -15,15 +15,14 @@ const handleError = (statusCode) => {
     
     switch(true) {
         case statusCode < 500:
-            throw new Error("Thats character doesnt seem to be Real. We can't find them in our Database.")
+            throw new Error("Can't find or access that Character.")
         default:
             throw new Error("Looks like our system is down. Please try again later :(") 
     }
 }
 
-const get = async (url) => {
-    const data = await fetchJson(url)
-    return data
-}
+const get = async (url) => (
+    await fetchJson(url)
+)
 
 export default { get }
