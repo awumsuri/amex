@@ -37,7 +37,6 @@ class CharacterDisplay extends PureComponent {
             <div className="content">
                 <header className="star-wars-header">Star Wars</header>
                 <CharacterList 
-                    { ...this.state } 
                     onClick={this.handleCharacterSelect} 
                     characters={Characters.characters}
                     activeKey={this.activeKey}
