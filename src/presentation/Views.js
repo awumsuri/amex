@@ -28,7 +28,7 @@ export const CharacterList = (props) => (
 export const CharacterInfo = (props) => (
     <div className="results">
         <BootstrapTable data={props.movies} hover>
-            <TableHeaderColumn isKey dataField="title">Title</TableHeaderColumn>
+            <TableHeaderColumn isKey dataField="title" width="240">Title</TableHeaderColumn>
             <TableHeaderColumn dataField="created">Created</TableHeaderColumn>
         </BootstrapTable>
     </div>
