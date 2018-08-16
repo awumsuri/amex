@@ -10,8 +10,7 @@ class CharacterDisplay extends PureComponent {
     state = {        
         character: undefined,
         isFetching: false,
-        error: undefined,
-        activeKey: -1 
+        error: undefined
     }
 
     handleCharacterSelect = (event) => {
