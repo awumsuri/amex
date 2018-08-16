@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import Characters from '../model/characters'
-//import CharacterInfo from './CharacterInfo'
 import { CharacterList, CharacterInfo } from '../presentation/Views'
 import { connect } from 'react-redux'
 import { fetchCharacter } from '../actions/actions'
