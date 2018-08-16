@@ -5,7 +5,6 @@ const fetchCharacter = async url => (
     await ServiceCore.get(url)
 )
 
-
 const fetchMoviesByCharacter = async movies => {
     const promises = movies.map(movie => ServiceCore.get(movie))
     const allMovies = await Promise.all(promises)
@@ -16,7 +15,6 @@ const fetchAllCharacterMovies = Fjs.curry (
     async url => {
         const characterData = await fetchCharacter(url)
         const films = await fetchMoviesByCharacter(characterData.films)
-        console.log("films:", films)
         return films        
     }
 )
