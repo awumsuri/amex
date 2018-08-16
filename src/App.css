@@ -1,3 +1,19 @@
+@font-face {
+  font-family: 'star-wars';
+  font-style: 'bold';
+  src: local('star-wars')
+      url('./assets//fonts/Starjedi.ttf')
+
+}
+
+.star-wars-header {
+  text-align: center;
+  margin: auto;
+  width: 100%;
+  font-family: 'star-wars';
+  font-size: xx-large;  
+}
+
 .content {
   display: block;
   margin: auto;
@@ -6,11 +22,6 @@
 
 ul  {
   width: 200px;
-
-}
-
-.list-group {  
-
 }
 
 .character-select {
@@ -26,3 +37,4 @@ li {
   font-size: large;
   color: red;
 }
+
