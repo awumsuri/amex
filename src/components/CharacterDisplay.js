@@ -5,20 +5,19 @@ import { connect } from 'react-redux'
 import { fetchCharacter } from '../actions/actions'
 import { Sentry } from 'react-activity'
 
-let activeKey = -1;
-
 class CharacterDisplay extends PureComponent {
 
     state = {        
         character: undefined,
         isFetching: false,
-        error: undefined 
+        error: undefined,
+        activeKey: -1 
     }
 
     handleCharacterSelect = (event) => {
         const { attributes } = event.target
         const url = attributes['data-url'].value
-        activeKey = parseInt(attributes['data-indexname'].value, 10)        
+        this.setState({activeKey: parseInt(attributes['data-indexname'].value, 10)}) 
         this.props.fetchCharacter(url)
     }
 
@@ -41,7 +40,7 @@ class CharacterDisplay extends PureComponent {
                     { ...this.state } 
                     onClick={this.handleCharacterSelect} 
                     characters={Characters.characters}
-                    activeKey={activeKey}
+                    activeKey={this.state.activeKey}
                  />
                  {
                      app.isFetching && 
