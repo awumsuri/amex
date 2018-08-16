@@ -9,7 +9,8 @@ const AppReducer = (state = initialState, action) => {
         case ActionTypes.FETCHING_REQUEST:
             return {
                 ...state,
-                isFetching: true
+                isFetching: true,
+                error: undefined
             }
         case ActionTypes.FETCHING_FAILURE: 
             return {
@@ -21,12 +22,14 @@ const AppReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isFetching: false,
-                character: action.character
+                character: action.character, 
+                error: undefined
             }
         case ActionTypes.GET_CHARACTER:
             return {
                 ...state,
-                character: action.character
+                character: action.character,
+                error: undefined
             }        
         default:
             return state

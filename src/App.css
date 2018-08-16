@@ -12,3 +12,12 @@
   font-size: large;
   font-weight: bold;
 }
+
+li {
+  cursor: pointer;
+}
+
+.error {
+  font-size: large;
+  color: red;
+}

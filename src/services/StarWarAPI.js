@@ -1,7 +1,8 @@
 import ServiceCore from './core/ServiceCore'
 
-const fetchCharacter = async (id) => {    
-    const characterInfo = await ServiceCore.get(id)
+const fetchCharacter = async (url) => {    
+    const characterInfo = await ServiceCore.get(url)
+    console.log(JSON.stringify(characterInfo))
     return characterInfo
 }
 
