@@ -1,4 +1,4 @@
-import * as ActionTypes from '../ActionTypes/actionTypes'
+import * as ActionTypes from '../actionTypes/actionTypes'
 const initialState = {
     isFetching: false,
     character: undefined    
@@ -25,12 +25,6 @@ const AppReducer = (state = initialState, action) => {
                 character: action.character, 
                 error: false
             }
-        case ActionTypes.GET_CHARACTER:
-            return {
-                ...state,
-                character: action.character,
-                error: false
-            }        
         default:
             return state
     }

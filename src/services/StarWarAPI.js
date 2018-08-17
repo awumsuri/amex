@@ -11,12 +11,12 @@ const fetchMoviesByCharacter = async movies => {
     return allMovies
 }
 
-const fetchAllCharacterMovies = Fjs.curry (
+const fetchAllCharacterMovies = /*Fjs.curry (*/
     async url => {
         const characterData = await fetchCharacter(url)
         const films = await fetchMoviesByCharacter(characterData.films)
         return films        
     }
-)
+//)
 
 export default { fetchAllCharacterMovies }

@@ -10,7 +10,7 @@ const fetchJson = async url => {
    return (dataResponse)
 }
 
-const handleError = (statusCode) => {
+const handleError = statusCode => {
     switch(true) {
         case statusCode < 500:
             throw new Error("Can't find or access that Character.")
@@ -19,7 +19,7 @@ const handleError = (statusCode) => {
     }
 }
 
-const get = async (url) => (
+const get = async url => (
     await fetchJson(url)
 )
 

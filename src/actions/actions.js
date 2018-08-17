@@ -1,4 +1,4 @@
-import * as ActionTypes from '../ActionTypes/actionTypes'
+import * as ActionTypes from '../actionTypes/actionTypes'
 import StarWarAPI from '../services/StarWarAPI';
 
 export const fetchCharacter = (url) => {
