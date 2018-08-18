@@ -7,15 +7,11 @@ import { Sentry } from 'react-activity'
 
 class CharacterDisplay extends PureComponent {
 
-    state = {
-        data: {
-            character: undefined
-        },
-        isFetching: false,
-        error: undefined
-    }
-
     handleCharacterSelect = (event) => {
+        if (this.props.app.isFetching) {
+            return
+        }
+        
         const { attributes } = event.target
         const url = attributes['data-url'].value
         this.activeKey = parseInt(attributes['data-indexname'].value, 10)
@@ -37,7 +33,6 @@ class CharacterDisplay extends PureComponent {
 
     render() {
         const { app } = this.props
-        const { isFetching } = this.state
 
         if (app.data && app.data.associatedData) {
             this.transformDate(app.data.associatedData)
@@ -50,7 +45,7 @@ class CharacterDisplay extends PureComponent {
                     onClick={this.handleCharacterSelect} 
                     characters={Characters.characters}
                     activeKey={this.activeKey}
-                    isFetching={isFetching}
+                    isFetching={app.isFetching}
                  />
                  {
                      app.isFetching && 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
+const liClass =  "list-group-item list-group-item-action"
 
 export const CharacterList = (props) => (
     <div>   
@@ -13,8 +14,7 @@ export const CharacterList = (props) => (
                             <li 
                                 key={index}
                                 data-indexname={index}                         
-                                className={props.isFetching ? "disabled" : 
-                                    "list-group-item list-group-item-action".concat((props.activeKey === index) ? " active" : "")}
+                                className={liClass.concat((props.activeKey === index) ? " active" : "")}
                                 data-url={character.url}
                                 onClick={e => props.onClick(e)}
                             >
