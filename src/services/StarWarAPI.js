@@ -1,21 +1,25 @@
 import ServiceCore from './core/ServiceCore'
 import Fjs from 'functional.js'
 
-const fetchCharacter = async url => (    
-    await ServiceCore.get(url)
+const fetchDataWithPropery = async property => (
+    await ServiceCore.get(property)
 )
 
 const fetchDataWithArray = async array => {
-    const promises = array.map(url => ServiceCore.get(url))
-    const data = await Promise.all(promises)
-    
-    return data
+    if (array instanceof Array) {
+        const promises = array.map(url => ServiceCore.get(url))
+        const data = await Promise.all(promises)
+
+        return data
+    }
+
+    throw new Error("non array passed into function")
 }
 
 const fetchCharacterWithData = Fjs.curry (
-    async (url, property) => {
-        const characterData = await fetchCharacter(url)
-        const associatedData = await fetchDataWithArray(characterData[property])
+    async (characterUrl, arrayProps) => {
+        const characterData = await fetchDataWithPropery(characterUrl)
+        const associatedData = await fetchDataWithArray(characterData[arrayProps])
 
         return {
             characterData,
@@ -24,4 +28,4 @@ const fetchCharacterWithData = Fjs.curry (
     }
 )
 
-export default { fetchCharacterWithData }
+export default { fetchCharacterWithData, fetchDataWithPropery }

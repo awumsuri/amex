@@ -1,7 +1,6 @@
 import * as ActionTypes from '../actionTypes/actionTypes'
 const initialState = {
-    isFetching: false,
-    character: undefined    
+    isFetching: false
 }
 
 const AppReducer = (state = initialState, action) => {
