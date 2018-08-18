@@ -6,7 +6,7 @@ const fetchCharacter = async url => (
 )
 
 const fetchWithArray = async array => {
-    const promises = array.map(item => ServiceCore.get(item))
+    const promises = array.map(url => ServiceCore.get(url))
     const data = await Promise.all(promises)
     return data
 }
