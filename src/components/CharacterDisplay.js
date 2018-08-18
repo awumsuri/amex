@@ -22,9 +22,16 @@ class CharacterDisplay extends PureComponent {
         this.props.fetchCharacter(url)
     }
 
-    transformDate(characters) {
-        characters.forEach(character => {
-            character.release_date = new Date(character.release_date)
+    transformDate(films) {
+        const options = { 
+            weekday: 'long', 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+        };
+
+        films.forEach(film => {
+            film.release_date = new Date(film.release_date).toLocaleDateString(undefined, options)
         });
     }
 

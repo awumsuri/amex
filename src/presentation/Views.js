@@ -30,8 +30,12 @@ export const CharacterList = (props) => (
 export const CharacterInfo = (props) => (
     <div className="results">
         <header className="character-heading-result">{props.character.name}</header>
-        <BootstrapTable data={props.movies} hover>
-            <TableHeaderColumn isKey dataField="title" width="240">Title</TableHeaderColumn>
+        <BootstrapTable 
+            data={props.movies} 
+            hover
+            tableStyle={ { border: '#157ffb 5px solid' } }
+        >
+            <TableHeaderColumn isKey dataField="title" width="50%">Title</TableHeaderColumn>
             <TableHeaderColumn dataField="release_date">Release Date</TableHeaderColumn>
         </BootstrapTable>
     </div>

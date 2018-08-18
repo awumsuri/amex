@@ -47,7 +47,7 @@ li {
   display: block;
   margin: auto;
   padding: 20px;
-  margin: 10px;
+  max-width: 550px;
 }
 
 .character-heading-result {
