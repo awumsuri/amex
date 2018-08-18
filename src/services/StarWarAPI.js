@@ -5,17 +5,17 @@ const fetchCharacter = async url => (
     await ServiceCore.get(url)
 )
 
-const fetchMoviesByCharacter = async movies => {
-    const promises = movies.map(movie => ServiceCore.get(movie))
-    const allMovies = await Promise.all(promises)
-    return allMovies
+const fetchWithArray = async array => {
+    const promises = array.map(item => ServiceCore.get(item))
+    const data = await Promise.all(promises)
+    return data
 }
 
 const fetchCharacterWithData = Fjs.curry (
     async (url, property) => {
         const characterData = await fetchCharacter(url)
-        const films = await fetchMoviesByCharacter(characterData[property])
-        return films        
+        const data = await fetchWithArray(characterData[property])
+        return data
     }
 )
 

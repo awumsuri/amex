@@ -28,6 +28,8 @@ class CharacterDisplay extends PureComponent {
 
     render() {
         const { app } = this.props
+        const { isFetching } = this.state
+
         if (app.character) {
             this.transformDate(app.character)
         }
@@ -39,6 +41,7 @@ class CharacterDisplay extends PureComponent {
                     onClick={this.handleCharacterSelect} 
                     characters={Characters.characters}
                     activeKey={this.activeKey}
+                    isFetching={isFetching}
                  />
                  {
                      app.isFetching && 

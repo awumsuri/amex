@@ -5,9 +5,8 @@ const fetchJson = async url => {
    if(statusCode !== 200 && statusCode >= 400) {
         return handleError(statusCode)
    }
-   const dataResponse = await responseHeaders.json()
 
-   return (dataResponse)
+   return await responseHeaders.json()
 }
 
 const handleError = statusCode => {
