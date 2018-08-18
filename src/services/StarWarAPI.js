@@ -5,7 +5,7 @@ const fetchCharacter = async url => (
     await ServiceCore.get(url)
 )
 
-const fetchWithArray = async array => {
+const fetchDataWithArray = async array => {
     const promises = array.map(url => ServiceCore.get(url))
     const data = await Promise.all(promises)
     return data
@@ -14,8 +14,11 @@ const fetchWithArray = async array => {
 const fetchCharacterWithData = Fjs.curry (
     async (url, property) => {
         const characterData = await fetchCharacter(url)
-        const data = await fetchWithArray(characterData[property])
-        return data
+        const associatedData = await fetchDataWithArray(characterData[property])
+        return {
+            characterData,
+            associatedData
+        }
     }
 )
 

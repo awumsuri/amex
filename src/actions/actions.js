@@ -19,7 +19,7 @@ export const fetchingCharacterRequest = () => ({
 
 export const fetchingCharacterSuccess = (data) => ({
     type: ActionTypes.FETCHING_SUCCESS,
-    character: data
+    data
 })
 
 export const fetchingCharacterError = (error) => ({

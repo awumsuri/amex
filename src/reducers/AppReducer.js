@@ -22,7 +22,7 @@ const AppReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isFetching: false,
-                character: action.character, 
+                data: action.data, 
                 error: false
             }
         default:

@@ -7,8 +7,10 @@ import { Sentry } from 'react-activity'
 
 class CharacterDisplay extends PureComponent {
 
-    state = {        
-        character: undefined,
+    state = {
+        data: {
+            character: undefined
+        },
         isFetching: false,
         error: undefined
     }
@@ -30,8 +32,8 @@ class CharacterDisplay extends PureComponent {
         const { app } = this.props
         const { isFetching } = this.state
 
-        if (app.character) {
-            this.transformDate(app.character)
+        if (app.data && app.data.associatedData) {
+            this.transformDate(app.data.associatedData)
         }
 
         return (
@@ -54,8 +56,8 @@ class CharacterDisplay extends PureComponent {
                     </div>
                  }
                  {
-                     !app.error && !app.isFetching && app.character && 
-                     <CharacterInfo movies={app.character}/>
+                     !app.error && !app.isFetching && app.data && 
+                     <CharacterInfo movies={app.data.associatedData} character={app.data.characterData}/>
                  }
             </div>
         )        

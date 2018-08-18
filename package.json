@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "functional.js": "^0.8.0",
+    "lodash": "^4.17.10",
     "ramda": "^0.25.0",
     "react": "^16.4.2",
     "react-activity": "^1.2.2",
