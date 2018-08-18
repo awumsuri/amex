@@ -13,7 +13,8 @@ export const CharacterList = (props) => (
                             <li 
                                 key={index}
                                 data-indexname={index}                         
-                                className={props.isFetching ? "disabled" : "list-group-item list-group-item-action".concat((props.activeKey === index) ? " active" : "")}
+                                className={props.isFetching ? "disabled" : 
+                                    "list-group-item list-group-item-action".concat((props.activeKey === index) ? " active" : "")}
                                 data-url={character.url}
                                 onClick={e => props.onClick(e)}
                             >
@@ -33,7 +34,7 @@ export const CharacterInfo = (props) => (
         <BootstrapTable 
             data={props.movies} 
             hover
-            tableStyle={ { border: '#157ffb 5px solid' } }
+            tableStyle={ { border: '#157ffb 1px solid' } }
         >
             <TableHeaderColumn isKey dataField="title" width="50%">Title</TableHeaderColumn>
             <TableHeaderColumn dataField="release_date">Release Date</TableHeaderColumn>
