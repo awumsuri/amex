@@ -5,7 +5,7 @@ export const fetchCharacter = (url) => {
     return async dispatch => {
         dispatch(fetchingCharacterRequest())
         try {           
-            const data = await StarWarAPI.fetchAllCharacterMovies(url)
+            const data = await StarWarAPI.fetchCharacterWithData(url)("films")
             dispatch(fetchingCharacterSuccess(data))
         } catch(error) {
             dispatch(fetchingCharacterError(error))
