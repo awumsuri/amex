@@ -28,9 +28,14 @@ export const CharacterList = (props) => (
     </div>
 )
 
-export const CharacterInfo = (props) => (
+export const CharacterInfo = (props) => {
     <div className="results">
-        <header className="character-heading-result">{props.character.name}</header>
+        <header className="character-heading-result">
+            {props.character.name}
+        </header>
+        <div className="detail">
+            <span>Home: {props.character.homeworld.name} DOB: {props.character.birth_date}</span>
+        </div>
         <BootstrapTable 
             data={props.movies} 
             hover
@@ -40,4 +45,4 @@ export const CharacterInfo = (props) => (
             <TableHeaderColumn dataField="release_date">Release Date</TableHeaderColumn>
         </BootstrapTable>
     </div>
-)
+}

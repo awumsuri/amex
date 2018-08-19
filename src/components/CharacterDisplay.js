@@ -34,8 +34,8 @@ class CharacterDisplay extends PureComponent {
     render() {
         const { app } = this.props
 
-        if (app.data && app.data.associatedData) {
-            this.transformDate(app.data.associatedData)
+        if (app.data && app.data.filmsData) {
+            this.transformDate(app.data.filmsData)
         }
 
         return (
@@ -59,7 +59,7 @@ class CharacterDisplay extends PureComponent {
                  }
                  {
                      !app.error && !app.isFetching && app.data && 
-                     <CharacterInfo movies={app.data.associatedData} character={app.data.characterData}/>
+                     <CharacterInfo movies={app.data.filmsData} character={app.data.characterDetails}/>
                  }
             </div>
         )        

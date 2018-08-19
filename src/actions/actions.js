@@ -12,13 +12,13 @@ export const fetchCharacter = (url) => {
             const homeworld = await StarWarAPI.fetchDataWithPropery(vehicles.characterData.homeworld)
                                     
             dispatch(fetchingCharacterSuccess({
-                data: {
-                    filmsData: filmsData.associatedData,
+                characterDetails: {
                     starShips: starShips.associatedData,
                     vehicles: vehicles.associatedData,
                     homeworld,
-                    characterData: vehicles.characterData
-                }
+                    ...vehicles.characterData
+                },
+                filmsData: filmsData.associatedData
             }))
         } catch(error) {
             dispatch(fetchingCharacterError(error))
