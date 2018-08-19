@@ -16,9 +16,7 @@ export const fetchCharacter = (url) => {
                     ...vehicles.characterData,
                     starShips: starShips.associatedData,
                     vehicles: vehicles.associatedData,
-                    homeworld: {
-                        ...homeworld
-                    }
+                    homeworld: homeworld
                 },
                 filmsData: filmsData.associatedData
             }))
