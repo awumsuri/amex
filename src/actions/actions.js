@@ -8,14 +8,13 @@ export const fetchCharacter = (url) => {
             const character = await StarWarAPI.fetchCharacterWithData(url)
             const filmsData = await character('films')
             const starShips = await character('starships')
-            const vehicles = await character('vehicles')
-            const homeworld = await StarWarAPI.fetchDataWithPropery(vehicles.characterData.homeworld)
+            const characterData = starShips.characterData
+            const homeworld = await StarWarAPI.fetchDataWithPropery(characterData.homeworld)
                                     
             dispatch(fetchingCharacterSuccess({
                 characterDetails: {
-                    ...vehicles.characterData,
+                    ...characterData,
                     starShips: starShips.associatedData,
-                    vehicles: vehicles.associatedData,
                     homeworld: homeworld
                 },
                 filmsData: filmsData.associatedData
