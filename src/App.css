@@ -55,3 +55,12 @@ li {
   font-size: xx-large;
   padding: 10px;
 }
+
+.detail .title {
+  color: #157ffb;
+  font-weight: bold;
+}
+
+.detail {
+  font-size: small;
+}

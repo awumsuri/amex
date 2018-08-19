@@ -13,10 +13,12 @@ export const fetchCharacter = (url) => {
                                     
             dispatch(fetchingCharacterSuccess({
                 characterDetails: {
+                    ...vehicles.characterData,
                     starShips: starShips.associatedData,
                     vehicles: vehicles.associatedData,
-                    homeworld,
-                    ...vehicles.characterData
+                    homeworld: {
+                        ...homeworld
+                    }
                 },
                 filmsData: filmsData.associatedData
             }))

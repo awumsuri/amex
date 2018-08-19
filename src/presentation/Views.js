@@ -28,13 +28,17 @@ export const CharacterList = (props) => (
     </div>
 )
 
-export const CharacterInfo = (props) => {
+export const CharacterInfo = (props) => (
     <div className="results">
         <header className="character-heading-result">
             {props.character.name}
         </header>
         <div className="detail">
-            <span>Home: {props.character.homeworld.name} DOB: {props.character.birth_date}</span>
+            <span className="title">Home:</span> {props.character.homeworld.name} 
+            <span className="title"> DOB: </span> {props.character.birth_year}
+            <span className="title"> Gender: </span> {props.character.gender}
+            <span className="title"> Starships: </span> {props.character.starShips.map(startship => startship.name + " ")}
+
         </div>
         <BootstrapTable 
             data={props.movies} 
@@ -45,4 +49,4 @@ export const CharacterInfo = (props) => {
             <TableHeaderColumn dataField="release_date">Release Date</TableHeaderColumn>
         </BootstrapTable>
     </div>
-}
+)
