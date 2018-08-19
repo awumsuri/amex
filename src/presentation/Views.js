@@ -37,7 +37,10 @@ export const CharacterInfo = (props) => (
             <span className="title">Home:</span> {props.character.homeworld.name} 
             <span className="title"> DOB: </span> {props.character.birth_year}
             <span className="title"> Gender: </span> {props.character.gender}
-            <span className="title"> Starships: </span> {props.character.starShips.map(startship => startship.name + ",")}
+            <span className="title"> Starships: </span> {props.character.starShips.map(
+                (starship, index) => (
+                (index !== props.character.starShips.length - 1) ? starship.name + ", " : starship.name)
+            )}
         </div>
         <BootstrapTable 
             data={props.movies} 
